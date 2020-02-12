@@ -1,0 +1,100 @@
+---
+title: 'Simple Linear Regression: First Year College GPA'
+author: "YOUR NAME HERE"
+date: "2/12/2020"
+output: pdf_document
+---
+
+## Predicting Success in College
+
+During the college admissions process, many factors are considered to assess whether an applicant will be successful in college. Specifically, these factors are assumed to be good determinants of how an applicant will perform in the first year of college (assessed by GPA). Common metrics used to predict first year GPA include high school GPA and SAT score. In small groups, you will explore the relationships between first year GPA (units: first year GPA points) and high school GPA (units: high school GPA points), and first year GPA and SAT score (units: SAT points). The data set you will be using is available through the openintro library. 
+
+```{r setup, tidy=TRUE}
+## load packages
+library(ggplot2)
+library(openintro)
+
+### The name of the dataset you need is satGPA. This will load with openintro.
+head(satGPA)
+
+```
+
+### Model the relationship between first year college GPA and high school GPA.
+
+#### Make an appropriate graph to look at the relationship between your two variables. Identify the response variable and the predictor. Verbally describe the relationship between the two variables.
+
+```{r}
+
+```
+
+#### Find the correlation between the response and the predictor. Is is positive or negative?
+
+#### Calculate the five summary statistics necessary to estimate $\beta_0$ and $\beta_1$. Save them as `x_bar`, `y_bar`, `s_x`, `s_y`, and `R`.
+
+
+#### Then calculate these estimates (i.e. $\hat{\beta}_0$ and $\hat{\beta}_1$). Save them as `b0` and `b1`, respectively. What are the units for each of these estimates (see problem description)?
+
+```{r}
+
+```
+
+#### Fit the linear model for your problem. Be sure to identify the response and predictor correctly. Be sure to assign this a descriptive name (e.g. `lm_FYGPA_HSGPA`).
+
+```{r}
+
+```
+
+
+#### Use the summary function to look at a summary of your model fit. Compare the estimates of $\beta_0$ and $\beta_1$ that you get from this summary to those that you calculated in (c).
+
+```{r}
+
+```
+
+#### Interpret your estimates of intercept and slope in the context of the problem. Be sure to consider units.
+
+
+
+#### Is it appropriate to interpret the intercept in (f)? Why or why not? What about the slope?
+
+
+
+#### Is the linearity condition for least squares regression satisfied? To make a residual plot, you will need the following data frame (this will run after you have completed the previous steps of this lab). When you are ready, you can uncomment the relevant lines.
+
+Reminder: the basic anatomy of a plot made in ggplot is as follows: 
+
+```{}
+## Skeleton code - should not run anything
+(ggplot(data=<name of data frame>, 
+        aes(x=<variable for x axis>, y=<variable for y axis>,
+            color = <variable for color lines>, 
+            fill= <variable for color area>))
+        + geom_<geometry type>()
+        + <optional other things like axis labels, ...>)
+```
+
+```{r residual plot, tidy=TRUE}
+## Make data frame for residual plot
+## Uncomment the following two lines when you are ready to do this part.
+
+# resid_df_m1 <- data.frame(x=satGPA$HSGPA,
+#                           y=lm_FYGPA_HSGPA$residuals)
+
+## Use ggplot to make residual plot
+
+```
+
+#### What is the $R^2$ for your model? Interpret this value in the context of the problem.
+
+### Model the relationship between first year college GPA and SAT score (SATSum).
+
+Repeat the steps you took in the previous section, this time using SAT score as the predictor.
+
+### Model the relationship between first year college GPA and sex. 
+
+Repeat the steps you took in the previous section, this time using SAT score as the predictor. You will need to do one additional step before you start:
+
+```{r}
+satGPA$sex <- as.factor(satGPA$sex)
+```
+
